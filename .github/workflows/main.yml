@@ -20,6 +20,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v2-beta
         with:
@@ -30,10 +31,10 @@ jobs:
            # Yarn command
            cmd: install
       - name: Creating Build
-      - run: yarn build
+        run: yarn build
         
       - name: installing surge
-      - run: npm install -g surge
+        run: npm install -g surge
         
       - name: Deploying on Surge
-      - run: surge ./build http://bootcamp-engine.surge.sh/ --token ${{secrets.SURGETOKEN}}  
+        run: surge ./build http://bootcamp-engine.surge.sh/ --token ${{secrets.SURGETOKEN}}  
